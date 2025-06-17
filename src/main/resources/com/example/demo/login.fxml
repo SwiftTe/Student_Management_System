@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24"
+            prefWidth="600" prefHeight="400"
+            fx:controller="com.example.demo.LoginController">
+
+    <VBox alignment="CENTER" spacing="15" layoutX="100" layoutY="50" prefWidth="400">
+        <Label text="Student Management System Login">
+            <font>
+                <Font size="22"/>
+            </font>
+        </Label>
+
+        <ComboBox fx:id="roleComboBox" promptText="Select Role" prefWidth="300"/>
+
+        <TextField fx:id="usernameField" promptText="Username" prefWidth="300"/>
+        <PasswordField fx:id="passwordField" promptText="Password" prefWidth="300"/>
+
+        <HBox spacing="10" alignment="CENTER_LEFT" prefWidth="300">
+            <CheckBox fx:id="rememberMeCheckBox" text="Remember me"/>
+            <Label text="Forgot password?" style="-fx-text-fill: blue; -fx-underline: true;"/>
+        </HBox>
+
+        <Button fx:id="loginButton" text="Login" prefWidth="300" onAction="#onLogin"/>
+    </VBox>
+
+</AnchorPane>
