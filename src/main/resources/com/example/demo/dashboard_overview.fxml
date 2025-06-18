@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1"
+      spacing="10" padding="20" alignment="TOP_LEFT">
+    <Label text="Admin Dashboard Overview" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label text="Welcome, Admin! This is your central hub for managing the system."/>
+    <Label text="From here, you can navigate to various management modules using the sidebar."/>
+    <!-- Future additions here: summary statistics, quick links, recent activities etc. -->
+</VBox>
