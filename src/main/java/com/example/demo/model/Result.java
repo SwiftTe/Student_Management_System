@@ -10,12 +10,24 @@ public class Result {
     private String grade; // Nullable, e.g., 'A+', 'B', 'P', 'F'
     private String resultStatus; // ENUM in DB: 'Pass', 'Fail', 'Incomplete'
 
-    // Constructor for creating a new Result record (ID handled by DB, marks/grade/status nullable)
-    public Result(int studentId, int courseId, int semesterNumber, String academicYear) {
-        this(0, studentId, courseId, semesterNumber, academicYear, null, null, "Incomplete"); // Default status 'Incomplete'
+    // ✅ Constructor for creating a new Result (without resultId)
+    public Result(int studentId, int courseId, int semesterNumber, String academicYear,
+                  Integer marksObtained, String grade, String resultStatus) {
+        this.studentId = studentId;
+        this.courseId = courseId;
+        this.semesterNumber = semesterNumber;
+        this.academicYear = academicYear;
+        this.marksObtained = marksObtained;
+        this.grade = grade;
+        this.resultStatus = resultStatus;
     }
 
-    // Full constructor for retrieving Result from the database
+    // ✅ Constructor for creating a new Result with default values
+    public Result(int studentId, int courseId, int semesterNumber, String academicYear) {
+        this(0, studentId, courseId, semesterNumber, academicYear, null, null, "Incomplete");
+    }
+
+    // ✅ Full constructor for retrieving existing Result from DB
     public Result(int resultId, int studentId, int courseId, int semesterNumber,
                   String academicYear, Integer marksObtained, String grade, String resultStatus) {
         this.resultId = resultId;
@@ -54,7 +66,9 @@ public class Result {
                 "resultId=" + resultId +
                 ", studentId=" + studentId +
                 ", courseId=" + courseId +
+                ", semesterNumber=" + semesterNumber +
                 ", academicYear='" + academicYear + '\'' +
+                ", marksObtained=" + marksObtained +
                 ", grade='" + grade + '\'' +
                 ", resultStatus='" + resultStatus + '\'' +
                 '}';

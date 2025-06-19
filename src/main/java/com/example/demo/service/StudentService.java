@@ -214,4 +214,11 @@ public class StudentService {
         Pattern pat = Pattern.compile(emailRegex);
         return email != null && pat.matcher(email).matches();
     }
+
+    /**
+     * ✅ FIXED: Expose the userService inside the class (not outside)
+     */
+    public UserService getUserService() {
+        return userService;
+    }
 }

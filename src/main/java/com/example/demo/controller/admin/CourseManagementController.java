@@ -113,12 +113,14 @@ public class CourseManagementController {
             int programId = cellData.getValue().getProgramId();
             try {
                 Program program = programService.getProgramById(programId);
-                return FXCollections.observableArrayList(program != null ? program.getProgramName() : "N/A").get(0).asString();
+                String programName = (program != null) ? program.getProgramName() : "N/A";
+                return new javafx.beans.property.SimpleStringProperty(programName);
             } catch (SQLException e) {
                 System.err.println("Error fetching program name for course ID " + cellData.getValue().getCourseId() + ": " + e.getMessage());
-                return FXCollections.observableArrayList("Error").get(0).asString();
+                return new javafx.beans.property.SimpleStringProperty("Error");
             }
         });
+
         semesterCol.setCellValueFactory(new PropertyValueFactory<>("semesterNumber"));
         courseCodeCol.setCellValueFactory(new PropertyValueFactory<>("courseCode"));
         courseNameCol.setCellValueFactory(new PropertyValueFactory<>("courseName"));
@@ -313,3 +315,4 @@ public class CourseManagementController {
         alert.showAndWait();
     }
 }
+
